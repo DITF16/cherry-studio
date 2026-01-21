@@ -238,6 +238,7 @@ class KnowledgeService {
     id,
     embedApiClient,
     dimensions,
+    sendDimensions,  // 👈 新增：从参数中解构
     documentCount
   }: KnowledgeBaseParams): Promise<RAGApplication> => {
     if (this.ragApplications.has(id)) {
@@ -247,7 +248,8 @@ class KnowledgeService {
     let ragApplication: RAGApplication
     const embeddings = new Embeddings({
       embedApiClient,
-      dimensions
+      dimensions,
+      sendDimensions  // 👈 新增：传递给 Embeddings
     })
     try {
       const dbPath = this.getDbPath(id)

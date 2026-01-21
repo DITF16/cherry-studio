@@ -1544,6 +1544,8 @@
     "dimensions_size_placeholder": "Leave empty to not pass dimensions",
     "dimensions_size_too_large": "The embedding dimension cannot exceed the model's context limit ({{max_context}}).",
     "dimensions_size_tooltip": "Embedding dimension size, the larger the value, the more tokens will be consumed. Leave empty to not pass dimensions parameter.",
+    "send_dimensions": "Send dimensions parameter",
+    "send_dimensions_tooltip": "Whether to send the dimensions parameter in embedding requests. Some third-party APIs (such as some OpenAI-compatible services) do not support this parameter and will return a 400 error, in which case you need to turn off this option.",
     "directories": "Directories",
     "directory_placeholder": "Enter Directory Path",
     "document_count": "Requested Document Chunks",

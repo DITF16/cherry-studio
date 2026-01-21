@@ -7,7 +7,13 @@ import { net } from 'electron'
 import { VoyageEmbeddings } from './VoyageEmbeddings'
 
 export default class EmbeddingsFactory {
-  static create({ embedApiClient, dimensions }: { embedApiClient: ApiClient; dimensions?: number }): BaseEmbeddings {
+  /**
+   * 创建 Embeddings 实例
+   * @param embedApiClient - API 客户端配置
+   * @param dimensions - 向量维度
+   * @param sendDimensions - 是否在请求中发送 dimensions 参数（某些第三方 API 不支持）
+   */
+  static create({ embedApiClient, dimensions, sendDimensions = true }: { embedApiClient: ApiClient; dimensions?: number; sendDimensions?: boolean }): BaseEmbeddings {
     const batchSize = 10
     const { model, provider, apiKey, baseURL } = embedApiClient
     if (provider === 'voyageai') {
@@ -32,7 +38,7 @@ export default class EmbeddingsFactory {
     return new OpenAiEmbeddings({
       model,
       apiKey,
-      dimensions,
+      dimensions: sendDimensions ? dimensions : undefined,  // 👈 条件传递
       batchSize,
       configuration: { baseURL, fetch: net.fetch as typeof fetch }
     })

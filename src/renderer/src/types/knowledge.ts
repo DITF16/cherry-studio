@@ -84,6 +84,12 @@ export interface KnowledgeBase {
   name: string
   model: Model
   dimensions?: number
+  /**
+   * 是否在 embedding 请求中发送 dimensions 参数
+   * 某些第三方 API 不支持此参数（会返回 400 extra_forbidden 错误），需要设为 false
+   * @default true
+   */
+  sendDimensions?: boolean
   description?: string
   items: KnowledgeItem[]
   created_at: number
@@ -130,6 +136,12 @@ export interface PreprocessProvider {
 export type KnowledgeBaseParams = {
   id: string
   dimensions?: number
+  /**
+   * 是否在 embedding 请求中发送 dimensions 参数
+   * 某些第三方 API 不支持此参数，需要设为 false
+   * @default true
+   */
+  sendDimensions?: boolean
   chunkSize?: number
   chunkOverlap?: number
   embedApiClient: ApiClient

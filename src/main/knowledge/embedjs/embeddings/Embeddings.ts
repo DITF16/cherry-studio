@@ -6,10 +6,11 @@ import EmbeddingsFactory from './EmbeddingsFactory'
 
 export default class Embeddings {
   private sdk: BaseEmbeddings
-  constructor({ embedApiClient, dimensions }: { embedApiClient: ApiClient; dimensions?: number }) {
+  constructor({ embedApiClient, dimensions, sendDimensions = true }: { embedApiClient: ApiClient; dimensions?: number; sendDimensions?: boolean }) {
     this.sdk = EmbeddingsFactory.create({
       embedApiClient,
-      dimensions
+      dimensions,
+      sendDimensions
     })
   }
   public async init(): Promise<void> {

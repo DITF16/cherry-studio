@@ -80,6 +80,7 @@ export const getKnowledgeBaseParams = (base: KnowledgeBase): KnowledgeBaseParams
   return {
     id: base.id,
     dimensions: base.dimensions,
+    sendDimensions: base.sendDimensions,
     embedApiClient: {
       model: base.model.id,
       provider: base.model.provider,

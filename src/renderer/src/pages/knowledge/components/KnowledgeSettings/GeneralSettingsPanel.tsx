@@ -6,6 +6,7 @@ import { isEmbeddingModel } from '@renderer/config/models'
 import { useProviders } from '@renderer/hooks/useProvider'
 import { getModelUniqId } from '@renderer/services/ModelService'
 import type { KnowledgeBase } from '@renderer/types'
+import { Input, Slider, Switch } from 'antd'  // 👈 新增 Switch
 import { Input, Slider } from 'antd'
 import { useTranslation } from 'react-i18next'
 
@@ -63,6 +64,19 @@ const GeneralSettingsPanel: React.FC<GeneralSettingsPanelProps> = ({ newBase, se
           disabled={!newBase.model}
         />
       </SettingsItem>
+      {/* 👇 新增：发送 dimensions 参数开关 */}
+      <SettingsItem>
+        <div className="settings-label">
+          {t('knowledge.send_dimensions')}
+          <InfoTooltip title={t('knowledge.send_dimensions_tooltip')} placement="right" />
+        </div>
+        <Switch
+          checked={newBase.sendDimensions !== false}
+          onChange={(checked) => setNewBase((prev) => ({ ...prev, sendDimensions: checked }))}
+        />
+      </SettingsItem>
+      {/* 👆 新增结束 */}
+
 
       <SettingsItem>
         <div className="settings-label">

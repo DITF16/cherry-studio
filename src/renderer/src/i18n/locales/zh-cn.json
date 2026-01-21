@@ -1544,6 +1544,8 @@
     "dimensions_size_placeholder": "留空表示不设置",
     "dimensions_size_too_large": "嵌入维度不能超过模型上下文限制（{{max_context}}）",
     "dimensions_size_tooltip": "嵌入维度大小，数值越大消耗的 Token 也越多。留空则不传递 dimensions 参数。",
+    "send_dimensions": "发送 dimensions 参数",
+    "send_dimensions_tooltip": "是否在 embedding 请求中发送 dimensions 参数。某些第三方 API（如部分 OpenAI 兼容服务）不支持此参数，会返回 400 错误，需要关闭此选项。",
     "directories": "目录",
     "directory_placeholder": "请输入目录路径",
     "document_count": "请求文档片段数量",
