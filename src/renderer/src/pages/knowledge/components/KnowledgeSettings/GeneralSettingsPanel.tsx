@@ -7,7 +7,6 @@ import { useProviders } from '@renderer/hooks/useProvider'
 import { getModelUniqId } from '@renderer/services/ModelService'
 import type { KnowledgeBase } from '@renderer/types'
 import { Input, Slider, Switch } from 'antd'  // 👈 新增 Switch
-import { Input, Slider } from 'antd'
 import { useTranslation } from 'react-i18next'
 
 import { SettingsItem, SettingsPanel } from './styles'
